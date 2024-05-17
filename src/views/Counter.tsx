@@ -3,10 +3,10 @@ import { useState } from "react";
 import usePrevious from "../hooks/usePrevious";
 import useIdle from "../hooks/useIdle";
 
-export default function Counter() {
+export default function Counter(props) {
   const [count, setCount] = useState(0);
   const prev = usePrevious(count);
-  const isIdle = useIdle(30000);
+  const isIdle = useIdle(300000);
 
   useEffect(() => {
     if (isIdle) {

@@ -9,11 +9,11 @@ export default function useThrottle(
   let leading = useRef<any>(options.leading);
 
   return useCallback(
-    function (event) {
+    function () {
       const isLeading = leading.current && !timerId.current;
 
       if (isLeading) {
-        func.apply(this, [arguments, event]);
+        func.apply(this, arguments);
         leading.current = false;
       }
 

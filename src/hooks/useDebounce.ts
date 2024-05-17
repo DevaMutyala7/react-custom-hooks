@@ -20,7 +20,7 @@ export default function useDebounce(
       }, delay);
 
       if (callNow) {
-        func.call(this, arguments);
+        func.call(this, ...arguments);
       }
     },
     [func, immediate, delay]
