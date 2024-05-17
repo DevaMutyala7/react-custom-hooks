@@ -1,7 +1,7 @@
 import { useCallback, useRef } from "react";
 
 export default function useDebounce(
-  func: () => void,
+  func: (args?: any) => void,
   delay: number,
   immediate: boolean = false
 ) {
@@ -15,14 +15,14 @@ export default function useDebounce(
 
       timer.current = setTimeout(() => {
         if (!callNow) {
-          func.call(this, arguments);
+          func.apply(this, [...arguments]);
         }
-      }, 1000);
+      }, delay);
 
       if (callNow) {
         func.call(this, arguments);
       }
     },
-    [func, immediate]
+    [func, immediate, delay]
   );
 }

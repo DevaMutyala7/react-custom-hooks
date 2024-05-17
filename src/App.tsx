@@ -4,8 +4,13 @@ import DataView from "./views/DataView";
 import Input from "./views/Input";
 import useDebounce from "./hooks/useDebounce";
 import useThrottle from "./hooks/useThrottle";
+import useResponsive from "./hooks/useResponsive";
 
 function App() {
+  const device = useResponsive();
+
+  console.log("de", device);
+
   return (
     <div
       className="App"
